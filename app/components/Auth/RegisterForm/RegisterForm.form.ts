@@ -1,13 +1,13 @@
 import * as Yup from 'yup'
 
-interface FormValues {
+export interface RegisterFormValues {
     email: string;
     username: string;
     name: string;
     password: string;
 }
 
-export function initialValues() : FormValues {
+export function initialValues() : RegisterFormValues {
     return {
         email: "",
         username: "",

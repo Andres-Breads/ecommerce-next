@@ -1,11 +1,11 @@
 import * as Yup from "yup";
 
-interface FormValues {
+export interface LoginFormValues {
     identifier: string;
     password: string;
 }
 
-export function initialValues() : FormValues {
+export function initialValues() : LoginFormValues {
     return {
         identifier: "",
         password: "",
