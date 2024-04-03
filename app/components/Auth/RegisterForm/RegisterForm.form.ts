@@ -1,5 +1,4 @@
 import * as Yup from 'yup'
-import type { FormikConfig } from 'formik';
 
 interface FormValues {
     email: string;
