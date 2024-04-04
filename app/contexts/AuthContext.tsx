@@ -49,7 +49,9 @@ export function AuthProvider({ children }: {
     }
 
     const logout = () => {
-
+        tokenCtrl.removeToken();
+        setToken(null);
+        setUser(null);
     }
 
     const data = {
