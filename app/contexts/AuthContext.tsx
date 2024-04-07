@@ -1,7 +1,6 @@
 "use client"
 import { createContext, useEffect, useState } from "react";
 import { Token, User } from "@/api";
-import { StrictSegmentInlineProps } from "semantic-ui-react";
 
 interface IUser {
     id: number;

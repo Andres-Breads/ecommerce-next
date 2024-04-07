@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/scss/global.scss";
 import { AuthProvider } from "./contexts";
-import LayoutStyles from "./LayoutStyles";
+import BasicLayout from "./BasicLayout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,11 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <LayoutStyles>
-          <AuthProvider>
+        <AuthProvider>
+          <BasicLayout isContainer>
             {children}
-          </AuthProvider>
-        </LayoutStyles>
+          </BasicLayout>
+        </AuthProvider>
       </body>
     </html>
   );
