@@ -15,8 +15,6 @@ export default function BasicLayout({
     isContainer?: boolean;
     relative?: boolean;
 }>) {
-  console.log(isContainer);
-  
   return (
     <>
       <TopBar isOpenSearch={isOpenSearch} />
