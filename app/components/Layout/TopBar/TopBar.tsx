@@ -1,5 +1,6 @@
 import { Image } from "semantic-ui-react";
 import Link from "next/link";
+import { Account } from "../Account";
 import styles from "./TopBar.module.scss";
 
 export function TopBar({ isOpenSearch }: Readonly<{ isOpenSearch: boolean }>) {
@@ -16,7 +17,7 @@ export function TopBar({ isOpenSearch }: Readonly<{ isOpenSearch: boolean }>) {
             </div>
 
             <div className={styles.right}>
-                <span>ACCOUNT</span>
+                <Account />
             </div>
         </div>
     )

@@ -1,5 +1,4 @@
 "use client"
-import "semantic-ui-css/semantic.min.css";
 import { Container } from "semantic-ui-react";
 import classNames from "classnames";
 import { TopBar } from "@/components/Layout";

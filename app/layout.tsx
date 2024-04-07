@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/scss/global.scss";
 import { AuthProvider } from "./contexts";
-import BasicLayout from "./BasicLayout";
+import SemanticUILayout from "./SemanticUILayout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,9 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AuthProvider>
-          <BasicLayout>
+          <SemanticUILayout>
             {children}
-          </BasicLayout>
+          </SemanticUILayout>
         </AuthProvider>
       </body>
     </html>
