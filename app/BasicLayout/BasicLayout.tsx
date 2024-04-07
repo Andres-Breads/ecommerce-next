@@ -1,7 +1,7 @@
 "use client"
 import { Container } from "semantic-ui-react";
 import classNames from "classnames";
-import { TopBar } from "@/components/Layout";
+import { Footer, TopBar } from "@/components/Layout";
 import styles from "./BasicLayout.module.scss"
 
 export default function BasicLayout({
@@ -24,6 +24,8 @@ export default function BasicLayout({
           {isContainer ? <Container>{children}</Container> : children}
         </div>
       </Container>
+
+      <Footer />
     </>
   )
 }
