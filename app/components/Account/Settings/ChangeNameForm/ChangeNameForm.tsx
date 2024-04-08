@@ -2,19 +2,21 @@
 import { Form } from "semantic-ui-react"
 import { useFormik } from "formik"
 import { useAuth } from "@/hooks"
+import { User } from "@/api"
 import { initialValues, validationSchema } from "./ChangeNameForm.form"
 import styles from "./ChangeNameForm.module.scss"
+
+const userCtrl = new User();
 
 export function ChangeNameForm() {
     const { user } = useAuth();
     const formik = useFormik({
-        initialValues: initialValues(user?.firstname, user?.lastname),
+        initialValues: initialValues(user.firstname, user.lastname),
         validationSchema: validationSchema(),
         validateOnChange: false,
         onSubmit: async (formValue) => {
             try {
-                console.log(formValue);
-                
+                await userCtrl.updateMe(user.id, formValue)
             } catch (error) {
                 console.error(error);
             }
