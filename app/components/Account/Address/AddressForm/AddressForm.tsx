@@ -6,7 +6,7 @@ import { initialValues, validationSchema } from "./AddressForm.form"
 
 const addressCtrl = new Address();
 
-export function AddressForm({ onClose }: Readonly<{ onClose: () => void }>) {
+export function AddressForm({ onClose, onReload }: Readonly<{ onClose: () => void, onReload: () => void }>) {
     const { user } = useAuth()
 
     const formik = useFormik({
@@ -18,6 +18,7 @@ export function AddressForm({ onClose }: Readonly<{ onClose: () => void }>) {
                 await addressCtrl.create(formValues, user.id)
 
                 formik.handleReset()
+                onReload()
                 onClose()
             } catch (error) {
                 console.error(error)

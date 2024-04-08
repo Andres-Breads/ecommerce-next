@@ -7,7 +7,7 @@ import styles from "./ListAddresses.module.scss"
 
 const addressCtrl = new AddressCtrl();
 
-export function ListAddresses() {
+export function ListAddresses({ reload, onReload }: Readonly<{ reload : boolean, onReload: () => void }>) {
     const [addresses, setAddresses] = useState(null);
     const { user } = useAuth();
 
@@ -20,7 +20,7 @@ export function ListAddresses() {
                 console.error(error);
             }
         })()
-    }, [])
+    }, [reload])
 
     if (!addresses) return null;
     
