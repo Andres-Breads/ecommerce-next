@@ -1,6 +1,6 @@
 import { Token } from "@/api";
 
-export async function authFetch(url: string, params: any): Promise<Response | Error | undefined> {
+export async function authFetch(url: string, params?: any): Promise<Response | Error | undefined> {
     const tokenCtrl = new Token();
     const token = tokenCtrl.getToken();
 
