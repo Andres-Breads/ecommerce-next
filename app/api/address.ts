@@ -43,4 +43,26 @@ export class Address {
             throw error
         }
     }
+
+    async update(data: any, addressId: number) {
+        try {
+            const url = `${ENV.API_URL}/${ENV.ENDPOINTS.ADDRESS}/${addressId}`;
+            const params = {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ data })
+            };
+
+            const response = await authFetch(url, params);
+            const result = await response.json();
+
+            if (response.status !== 200) throw result;
+
+            return result;
+        } catch (error) {
+            throw error
+        }
+    }
 }

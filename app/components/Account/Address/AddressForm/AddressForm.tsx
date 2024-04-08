@@ -6,16 +6,30 @@ import { initialValues, validationSchema } from "./AddressForm.form"
 
 const addressCtrl = new Address();
 
-export function AddressForm({ onClose, onReload }: Readonly<{ onClose: () => void, onReload: () => void }>) {
+export function AddressForm({
+    onClose,
+    onReload,
+    addressId,
+    address
+}: Readonly<{
+    onClose: () => void,
+    onReload: () => void,
+    addressId?: number,
+    address?: any
+}>) {
     const { user } = useAuth()
 
     const formik = useFormik({
-        initialValues: initialValues(),
+        initialValues: initialValues(address),
         validationSchema: validationSchema(),
         validateOnChange: false,
         onSubmit: async (formValues) => {
             try {
-                await addressCtrl.create(formValues, user.id)
+                if (addressId) {
+                    await addressCtrl.update(formValues, addressId)
+                } else {
+                    await addressCtrl.create(formValues, user.id)
+                }
 
                 formik.handleReset()
                 onReload()

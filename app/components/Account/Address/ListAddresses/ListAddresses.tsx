@@ -27,7 +27,12 @@ export function ListAddresses({ reload, onReload }: Readonly<{ reload : boolean,
     return (
         <div className={styles.addresses}>
             {map(addresses, (address: any) => (
-                <Address key={address.id} addressId={address.id} address={address.attributes} />
+                <Address
+                    key={address.id}
+                    addressId={address.id}
+                    address={address.attributes}
+                    onReload={onReload}
+                />
             ))}
         </div>
     )
