@@ -1,6 +1,6 @@
 import { Token } from "@/api";
 
-export async function authFetch(url, params) {
+export async function authFetch(url: string, params: any): Promise<Response | Error | undefined> {
     const tokenCtrl = new Token();
     const token = tokenCtrl.getToken();
 
@@ -25,7 +25,7 @@ export async function authFetch(url, params) {
 
             try {
                 return await fetch(url, paramsTemp);
-            } catch (error) {
+            } catch (error: any) {
                 return error
             }
         }

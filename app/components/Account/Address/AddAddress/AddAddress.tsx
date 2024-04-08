@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Button } from "semantic-ui-react"
 import { BasicModal } from "@/components/Shared"
+import { AddressForm } from "../AddressForm"
 import styles from "./AddAddress.module.scss"
 
 export function AddAddress() {
@@ -15,7 +16,7 @@ export function AddAddress() {
             </Button>
 
             <BasicModal show={show} onClose={onOpenClose} title="Nueva dirección">
-                <h2>Contenido del basic modal</h2>
+                <AddressForm onClose={onOpenClose} />
             </BasicModal>
         </>
     )
