@@ -42,7 +42,7 @@ export default function AccountPage() {
             )
         },
         {
-            menuItem: { icon: "setting", content: "Ajustes" },
+            menuItem: { key: 20, icon: "setting", content: "Ajustes" },
             render: () => (
                 <Tab.Pane attached={false}>
                     <Settings.ChangeNameForm />
@@ -56,7 +56,8 @@ export default function AccountPage() {
         },
         {
             menuItem: {
-                icon: "logout",
+                key: 21,
+                icon: "log out",
                 content: "",
                 onClick: logout,
             }
