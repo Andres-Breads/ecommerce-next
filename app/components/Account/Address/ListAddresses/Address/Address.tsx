@@ -1,8 +1,11 @@
 import { useState } from "react"
 import { Button, Icon } from "semantic-ui-react"
+import { Address as AddressCtrl } from "@/api"
 import { BasicModal, Confirm } from "@/components/Shared"
 import { AddressForm } from "../../AddressForm"
 import styles from "./Address.module.scss"
+
+const addressCtrl = new AddressCtrl();
 
 export function Address({
     addressId,
@@ -18,6 +21,15 @@ export function Address({
 
     const openCloseEdit = () => setShowEdit(prevState => !prevState);
     const openCloseConfirm = () => setShowConfirm(prevState => !prevState);
+
+    const onDelete = async () => {
+        try {
+            const response = await addressCtrl.delete(addressId)
+            onReload()
+        } catch (error) {
+            console.error(error)
+        }
+    }
 
     return (
         <>
@@ -43,7 +55,7 @@ export function Address({
             <Confirm
                 open={showConfirm}
                 onCancel={openCloseConfirm}
-                onConfirm={() => console.log("DIRECCION ELIMINADA")}
+                onConfirm={onDelete}
                 content="¿Estas seguro de que quieres eliminar la dirección?"
             />
 
