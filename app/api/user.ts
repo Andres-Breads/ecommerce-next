@@ -6,9 +6,9 @@ export class User {
             const url = `${ENV.API_URL}/${ENV.ENDPOINTS.USERS_ME}`;
 
             const response = await authFetch(url);
-            const result = response.json();
+            const result = response?.json();
     
-            if (response.status !== 200) throw result;
+            if (response?.status !== 200) throw result;
     
             return result;
         } catch (error) {
@@ -16,7 +16,7 @@ export class User {
         }
     }
 
-    async updateMe(userId: number, data) {
+    async updateMe(userId: number, data: any) {
         try {
             const url = `${ENV.API_URL}/${ENV.ENDPOINTS.USERS}/${userId}`;
 
@@ -29,9 +29,9 @@ export class User {
             };
 
             const response = await authFetch(url, params);
-            const result = await response.json();
+            const result = await response?.json();
 
-            if (response.status !== 200) throw result;
+            if (response?.status !== 200) throw result;
 
             return result;
         } catch (error) {

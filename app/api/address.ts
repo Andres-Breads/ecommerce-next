@@ -18,9 +18,9 @@ export class Address {
             }
 
             const response = await authFetch(url, params);
-            const result = await response.json();
+            const result = await response?.json();
 
-            if (response.status !== 200) throw result;
+            if (response?.status !== 200) throw result;
 
             return result;
         } catch (error) {
@@ -34,9 +34,9 @@ export class Address {
             const url = `${ENV.API_URL}/${ENV.ENDPOINTS.ADDRESS}?${filters}`;
 
             const response = await authFetch(url);
-            const result = await response.json();
+            const result = await response?.json();
 
-            if (response.status !== 200) throw result;
+            if (response?.status !== 200) throw result;
 
             return result;
         } catch (error) {
@@ -56,9 +56,9 @@ export class Address {
             };
 
             const response = await authFetch(url, params);
-            const result = await response.json();
+            const result = await response?.json();
 
-            if (response.status !== 200) throw result;
+            if (response?.status !== 200) throw result;
 
             return result;
         } catch (error) {
@@ -74,9 +74,9 @@ export class Address {
             };
 
             const response = await authFetch(url, params);
-            const result = await response.json();
+            const result = await response?.json();
 
-            if (response.status !== 200) throw result;
+            if (response?.status !== 200) throw result;
 
             return result;
         } catch (error) {
