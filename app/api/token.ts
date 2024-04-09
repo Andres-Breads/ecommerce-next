@@ -16,8 +16,9 @@ export class Token {
 
     hasExpired(token: string) {
         const tokenDecode = jwtDecode(token);
-        const expireDate = tokenDecode.exp * 1000;
+
         const currentDate = new Date().getTime();
+        const expireDate = (tokenDecode?.exp ?? currentDate/1000) * 1000;
 
         if (currentDate > expireDate) {
             return true;
