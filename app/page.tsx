@@ -1,11 +1,16 @@
+"use client"
 import BasicLayout from "./BasicLayout";
+import { Home } from "@/components/Home"
+import { Separator } from "@/components/Shared";
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <BasicLayout>
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <h1 style={{paddingTop: 100}}>Estamos en la HOME</h1>
-      </main>
-    </BasicLayout>
+    <>
+      <BasicLayout>
+        <Home.BannerLastGamePublished />
+
+        <Separator height={100} />
+      </BasicLayout>
+    </>
   );
 }
